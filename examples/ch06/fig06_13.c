@@ -11,7 +11,12 @@ void modifyElement(int e);
 int main(void)
 {
    int a[SIZE] = { 0, 1, 2, 3, 4 }; // initialize array a
+   printf("%-40s%p\n", "The value of the array name is: ", a);
+   printf("%-40s%p\n", "The value of the first element in a is: ", &a[0]);
+   printf("%-40s%p\n", "The value of the array address is: ", &a);
+   
 
+   puts("");
    puts("Effects of passing entire array by reference:\n\nThe "
       "values of the original array are:");
 
