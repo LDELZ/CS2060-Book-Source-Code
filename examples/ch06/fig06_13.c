@@ -2,20 +2,28 @@
 // Passing arrays and individual array elements to functions.
 #include <stdio.h>
 #define SIZE 5
-
+#define ROWS 3
+#define COLUMNS 4
 // function prototypes
 void modifyArray(int b[], size_t size);
-void modifyElement(int e);               
+void modifyElement(int e);
+void printArray(const int array[]); //Function prototype added above main
 
 // function main begins program execution
 int main(void)
 {
+    int array2D[ROWS][COLUMNS];
+
+
+
+
    int a[SIZE] = { 0, 1, 2, 3, 4 }; // initialize array a
    printf("%-40s%p\n", "The value of the array name is: ", a);
    printf("%-40s%p\n", "The value of the first element in a is: ", &a[0]);
    printf("%-40s%p\n", "The value of the array address is: ", &a);
-   
-
+   puts("");
+   printArray(a); // Call to function printArray passing in array 'a'
+   puts("");
    puts("");
    puts("Effects of passing entire array by reference:\n\nThe "
       "values of the original array are:");
@@ -62,7 +70,12 @@ void modifyElement(int e)
    // multiply parameter by 2                                  
    printf("Value in modifyElement is %d\n", e *= 2);            
 } 
-                          
+  
+void printArray(const int array[]) {
+    for (size_t i = 0; i < SIZE; ++i) {
+        printf("%2d", array[i]);
+    }
+}
 
 
 
