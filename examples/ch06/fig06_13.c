@@ -8,20 +8,21 @@
 void modifyArray(int b[], size_t size);
 void modifyElement(int e);
 void printArray(const int array[]); //Function prototype added above main
-
+void testNames(int passedArray[]);
+void fillArray(int passedArray2D[][COLUMNS]);
+void printArray2D(const int passedArray2D[][COLUMNS], size_t tier, size_t contents);
+int testScalars(const int number);
 // function main begins program execution
 int main(void)
 {
     int array2D[ROWS][COLUMNS];
-
+    fillArray(array2D);
+    printArray2D(array2D, ROWS, COLUMNS);
 
 
 
    int a[SIZE] = { 0, 1, 2, 3, 4 }; // initialize array a
-   printf("%-40s%p\n", "The value of the array name is: ", a);
-   printf("%-40s%p\n", "The value of the first element in a is: ", &a[0]);
-   printf("%-40s%p\n", "The value of the array address is: ", &a);
-   puts("");
+ 
    printArray(a); // Call to function printArray passing in array 'a'
    puts("");
    puts("");
@@ -76,7 +77,33 @@ void printArray(const int array[]) {
         printf("%2d", array[i]);
     }
 }
-
+void printArray2D(const int passedArray2D[][COLUMNS], size_t tier, size_t contents) {
+    printf("\n\n%s\n\n", "Output of the newly filled array");
+    for (size_t i = 0; i < tier; i++) {
+        for (size_t j = 0; j < contents; j++) {
+            printf("%13d ", passedArray2D[i][j]);
+        }
+        puts("");
+    }
+    puts("\n");
+}
+void testNames(int passedArray[]) {
+    printf("%-40s%p\n", "The value of the array name is: ", passedArray);
+    printf("%-40s%p\n", "The value of the first element in a is: ", &passedArray[0]);
+    printf("%-40s%p\n", "The value of the array address is: ", &passedArray);
+    puts("");
+}
+void fillArray(int passedArray2D[][COLUMNS]) {
+    for (size_t i = 0; i < ROWS; i++) {
+        for (size_t j = 0; j < COLUMNS; j++) {
+            scanf("%d", &passedArray2D[i][j]);
+        }
+    }
+}
+int testScalars(const int number) {
+    number += 2;
+    return number;
+}
 
 
 
