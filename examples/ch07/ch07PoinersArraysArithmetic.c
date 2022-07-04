@@ -8,8 +8,21 @@
 #include <stdlib.h>
 #define SIZE 5
 
+void passPrimitive(int* passedAddress);
+
 int main(void)
 {
+	int newInteger = 5;
+	int *newPointer;
+	newPointer = &newInteger;
+
+	int timesFive = (*newPointer) * 5;
+	printf("%d\n", timesFive);
+	passPrimitive(newPointer);
+
+
+	printf("%d\n", newInteger);
+	printf("%p\n", &newPointer);
 
 	//Part 1
 	puts("****************************************");
@@ -102,6 +115,9 @@ int main(void)
 	}
 
 	return 0;
+}
+void passPrimitive(int* passedAddress) {
+	printf("%d\n", *passedAddress);
 }
 
 
