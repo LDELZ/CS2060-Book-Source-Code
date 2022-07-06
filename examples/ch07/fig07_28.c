@@ -1,49 +1,87 @@
+// Student: Luke Delzer
+// Course: CS2060
+// Semester: Summer 2022
+// Due: 07/07/2022
 // Fig. 7.28: fig07_28.c
 // Demonstrating an array of pointers to functions.
 #include <stdio.h>
 
 // prototypes
-void function1(int a);
-void function2(int b);
-void function3(int c);
+double add(double num1, double num2);
+double subtract(double num1, double num2);
+double multiply(double num1, double num2);
+double divide(double num1, double num2);
 
 int main(void)
 {
-   // initialize array of 3 pointers to functions that each take an
-   // int argument and return void                              
-   void (*f[3])(int) = {function1, function2, function3};    
+   size_t choice = 0; // variable to store user choice
+   double inputOne = 0; // variable to hold first input
+   double inputTwo = 0; // variable to hold second input
+   double result = 0; // variable to store mathematical result
 
-   printf("%s", "Enter a number between 0 and 2, 3 to end: ");
-   size_t choice; // variable to hold user's choice
-   scanf("%u", &choice);
+   // initialize array of 3 pointers to functions that each take an
+   double (*f[4])(double, double) = { add, subtract, multiply, divide };
+
+   // Display a menu for the user to select mathematical operations from
+   puts("Enter a number to select a mathematical operation from the following list. Select 4 to end: ");
+   puts("0 - Add");
+   puts("1 - Subtract");
+   puts("2 - Multiply");
+   puts("3 - Divide");
+   puts("4 - End program");
+
+   scanf("%llu", &choice);
 
    // process user's choice
-   while (choice >= 0 && choice < 3) {
+   while (choice >= 0 && choice < 4) {
 
-      // invoke function at location choice in array f and pass
-      // choice as an argument                              
-      (*f[choice])(choice);                                
+      // choice as an argument 
+      printf("You entered %llu. Now enter two numbers.\n", choice);
 
-      printf("%s", "Enter a number between 0 and 2, 3 to end: ");
-      scanf("%u", &choice);
+      // Obtain two inputs
+      scanf("%lf", &inputOne);
+      scanf("%lf", &inputTwo);
+
+      // Calculate result and store in result
+      result = (*f[choice])(inputOne, inputTwo);
+
+      printf("The result is %g\n", result);
+      
+      // Repeat question
+      printf("%s", "Enter a number between 0 and 3, 4 to end: ");
+      scanf("%llu", &choice);
+      
    } 
-
+   
    puts("Program execution completed.");
 } 
 
-void function1(int a)
+double add(double num1, double num2)
 {
-   printf("You entered %d so function1 was called\n\n", a);
+    double sum = 0.0;
+    sum = num1 + num2;
+    return sum;
 }
 
-void function2(int b)
+double subtract(double num1, double num2)
 {
-   printf("You entered %d so function2 was called\n\n", b);
+    double difference = 0.0;
+    difference = num1 - num2;
+    return difference;
 }
 
-void function3(int c)
+double multiply(double num1, double num2)
 {
-   printf("You entered %d so function3 was called\n\n", c);  
+    double product = 0.0;
+    product = num1 * num2;
+    return product;
+}
+
+double divide(double num1, double num2)
+{
+    double quotient = 0.0;
+    quotient = num1 / num2;
+    return quotient;
 }
 
 
