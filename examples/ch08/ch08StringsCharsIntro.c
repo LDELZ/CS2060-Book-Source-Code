@@ -32,7 +32,9 @@ void exploreStringCharArray(void)
 	char string1[] = "string1 C";
 	char string2a[] = { 'S', 't', 'r', 'i', 'n', 'g', '2', ' ', 'C' };
 	char string2b[] = { 'S', 't', 'r', 'i', 'n', 'g', '2', ' ', 'C', '\0' };
+
 	char string3[10] = { " " };
+
 	char* string1Ptr = string1;
 	char* string3Ptr = string3;
 	char* string4Ptr = "String4Ptr C";
@@ -95,6 +97,7 @@ void testStringOverflow(void)
 
 	printf("%s", "Enter a string longer than 9 characters");
 	scanf("%s", string);
+	printf("%s", string);
 
 }
 
