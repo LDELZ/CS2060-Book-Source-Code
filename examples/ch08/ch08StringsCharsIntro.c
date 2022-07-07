@@ -18,8 +18,8 @@ int main(void)
 {
 
 	//reviewChar();
-	exploreStringCharArray();
-	//arrayPointerString(); 
+	// exploreStringCharArray();
+	arrayPointerString(); 
 
 	return 0;
 }
@@ -55,15 +55,15 @@ void exploreStringCharArray(void)
 
 	/*comment this function out after you see what happens and run again*/
 	puts("See what happens when the next function is called. Then comment this function.");
-	testStringOverflow();
+	// testStringOverflow();
 
 	/*Comment the next  lines of code after you see what happens here and with the next scanf */
-	puts("See what happens when the following overslow is scanned and what happens with next scanf");
+	/*puts("See what happens when the following overslow is scanned and what happens with next scanf");
 	puts("Then comment out the following 4 lines of code");
 	printf("%s", "Enter a string more than 9 into string3: ");
-	scanf("%9s", string3);
+    scanf("%9s", string3);
 	printf("string3[] = %s\n", string3);
-	printf("*string3Ptr = %s\n\n", string3Ptr);
+	printf("*string3Ptr = %s\n\n", string3Ptr);*/
 
 
 	printf("%s", "Enter a string  into  string3Ptr that is 9 char or less: ");
@@ -76,10 +76,10 @@ void exploreStringCharArray(void)
 	printf("*string4Ptr = %s\n\n", string1);
 
 
-	/*comment the following code when you see what happens */
+	/*comment the following code when you see what happens
 	printf("%s", "Enter a string into  string4Ptrthat is 9 char or less: ");
 	scanf("%9s", string4Ptr);
-	printf("*string4Ptr = %s\n\n", string4Ptr);
+	printf("*string4Ptr = %s\n\n", string4Ptr);*/
 
 
 	printf("string1[] sizeof     = %llu\n", sizeof(string1));
@@ -112,7 +112,7 @@ void arrayPointerString(void)
 	printf("*suitPtr size_of    = %llu\n", sizeof(*suitPtr));
 	printf("suitArray[4][9] sizeof    = %zu\n", sizeof(suitArray));
 
-	puts("\nHow do you access an array of pointers?");
+	/*puts("\nHow do you access an array of pointers?");
 
 	// add comment 
 	puts("\nWhat is this doing?");
@@ -149,7 +149,7 @@ void arrayPointerString(void)
 	printf("suitPtr[0][2] = %c\n", suitPtr[0][2]);
 	printf("suitPtr[0][3] = %c\n", suitPtr[0][3]);
 	printf("suitPtr[0][4] = %c\n", suitPtr[0][4]);
-	printf("suitPtr[0][5] = %c\n", suitPtr[0][5]);
+	printf("suitPtr[0][5] = %c\n", suitPtr[0][5]);*/
 
 	printf("%s", "Enter a string to put in suitArray[1]");
 	scanf("%s", suitArray[1]);
