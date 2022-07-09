@@ -26,7 +26,7 @@ int main(void)
 	int integerValue = 0;
 	size_t inputLength = 0;
 
-	printLimits();
+	//printLimits();
 
 	puts("\nEnter an integer");
 	fgets(inputStr, LENGTH, stdin);
@@ -40,9 +40,6 @@ int main(void)
 
 
 }
-
-
-
 void printLimits()
 {
 	printf("The number of bits in a byte %d\n", CHAR_BIT);
@@ -63,7 +60,6 @@ void printLimits()
 	printf("The minimum value of LONG = %ld\n", LONG_MIN);
 	printf("The maximum value of LONG = %ld\n", LONG_MAX);
 }
-
 
 void  exploreValidateInt(const char* buff)
 {
