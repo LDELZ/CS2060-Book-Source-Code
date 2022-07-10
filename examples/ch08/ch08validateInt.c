@@ -1,3 +1,8 @@
+// Student name: Luke Delzer
+// Course: CS2060
+// Semester: Summer 2022
+// Due date: 07/11/2022
+
 /*
 	if (inputStr[strlen(inputStr) - 1] == '\n')
 	{
@@ -5,6 +10,7 @@
 	}
 */
 
+// Several essential libraries are imported to use input functions, 
 #include <stdio.h>
 #include <errno.h>
 #include <limits.h>
@@ -15,7 +21,7 @@
 
 #define LENGTH 13
 
-void  exploreValidateInt(const char* buff);
+bool exploreValidateInt(const char* buff);
 bool validateInt(char* buff, int* const validInt);
 void printLimits();
 
@@ -30,16 +36,15 @@ int main(void)
 
 	puts("\nEnter an integer");
 	fgets(inputStr, LENGTH, stdin);
+	char *tokenPtr = strtok(inputStr, "\n");
 
 	for (unsigned int counter = 1; counter < 6; counter++)
 	{
 		exploreValidateInt(inputStr);
 
 	}
-
-
-
 }
+
 void printLimits()
 {
 	printf("The number of bits in a byte %d\n", CHAR_BIT);
@@ -61,11 +66,12 @@ void printLimits()
 	printf("The maximum value of LONG = %ld\n", LONG_MAX);
 }
 
-void  exploreValidateInt(const char* buff)
+bool  exploreValidateInt(const char* buff)
 {
 	char* end;
 	errno = 0;
 	int validInt = 0;
+	bool inputValid = false;
 	long intTest = strtol(buff, &end, 10);
 	if (end == buff) {
 		fprintf(stderr, "%s: not a decimal number\n", buff);
@@ -86,4 +92,5 @@ void  exploreValidateInt(const char* buff)
 		validInt = (int)intTest;
 		printf("%ld is integer value ", intTest);
 	}
+	return inputValid;
 }
