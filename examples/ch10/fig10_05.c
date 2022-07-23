@@ -25,6 +25,21 @@ int main(void)
       "and print both members.",
       "int:", value.x, 
       "double:", value.y);
+   puts("repeat");
+   value.x = 200;
+   value.y = 200;// put an integer into the union
+   printf("%s\n%s\n%s\n  %d\n\n%s\n  %f\n\n\n",
+       "Put 100 in the integer member",
+       "and print both members.",
+       "int:", value.x,
+       "double:", value.y);
+
+   value.y = 200.0; // put a double into the same union
+   printf("%s\n%s\n%s\n  %d\n\n%s\n  %f\n",
+       "Put 100.0 in the floating member",
+       "and print both members.",
+       "int:", value.x,
+       "double:", value.y);
 } 
 
 
